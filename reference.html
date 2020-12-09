@@ -105,6 +105,70 @@
         <aside>
             <p>use for sidebars, tangental info, and other content outside the general flow of the sectioned info</p>
         </aside>
-    
+
+        <h2>Forms</h2>
+        <form action="html page user is sent to when button is clicked" method="http method used">
+            <p>a form is wrapped in the form tag</p>
+            <label>
+                label for input box
+                <input name="variable name assigned to the value input in the text box" type="type of input" required placeholder="placeholder text--visually appears in field, dissapears when field is selected" value="prepopulates a field">
+                <!--the input tag is actually invoking code built into the browser to create an input text box-->
+                <!--the required attribute, which doesn't have an equals value, indicates a value is required for the form to be submitted-->
+            </label>
+            <label>
+                the textarea tag is used for large text inputs; it has the same potential attributes as input
+                <textarea></textarea>
+            </label>
+            <label>
+                simple (Boolean) checkbox
+                <input name="name" type="checkbox" value="this value seems to be passed along if the box is checked; is a null pass if the box isn't checked?" checked >
+                <!--the checked attribute, which doesn't have an equals value, indicates the box is checked by default-->
+            </label>
+            <button type="type of button">what the button says</button>
+        </form>
+        
+        <h3>Input Textbox Type Options</h3>
+        <ul>
+            <li>type="text"</li>
+            <li>type="email"</li>
+            <li>type="password"</li>
+            <li>type="search"</li>
+            <li>type="tel"</li>
+            <li>type="date"</li>
+            <li>type="color"</li>
+            <li>type="file"</li>
+        </ul>
+
+        <h3>Examples for Drop-Down, Checkbox Collection, Radio Button</h3>
+
+        <label>
+            choose one from the drop-down list
+            <select name="name">
+                <option>First Option</option>
+                <option>Second Choice</option>
+                <option>Third Thing</option>
+            </select>
+        </label>
+
+        <fieldset>
+            <legend>Checkbox fields inside a fieldset</legend>
+            <input id="thischeck" name="checkboxlist" type="checkbox" value="This" checked>
+            <label for="thischeck">This</label>
+            <input id="orcheck" name="checkboxlist" type="checkbox" value="And Or">
+            <label for="orcheck">And/Or</label>
+            <input id="thatcheck" name="checkboxlist" type="checkbox" value="That">
+            <label for="thatcheck">That</label>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Radio button list inside a fieldset</legend>
+            <input id="thisradio" name="radiobutton" type="radio" value="This" checked>
+            <label for="thisradio">This</label>
+            <input id="orradio" name="radiobutton" type="radio" value="Or">
+            <label for="orradio">Or</label>
+            <input id="thatradio" name="radiobutton" type="radio" value="That">
+            <label for="thatradio">That</label>
+        </fieldset>
+
     </body>
 </html>
