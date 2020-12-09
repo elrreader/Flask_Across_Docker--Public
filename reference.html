@@ -1,82 +1,89 @@
-<head>
-    #
-</head>
-<body>
-    <h1>Top headline: page title</h1>
-    <h2>secondary headline and/or subtitle</h2>
-    <p>paragraph text</p>
-    <p>paragraph text</p>
-    
-    <h3>third level headline</h3>
-    <p>visual/grammar <i>italics</i> and <b>boldings</b></p>
-    <p>emphasis <em>italics</em> and <strong>boldings</strong></p>
-    
-    <h4>fourth level headline</h4>
-    <ul>
-        <li>unordered list item</li>
-        <li>list item</li>
-        <li>list item</li>
-        <li>list item</li>
-    </ul>
-
-    <ol>
-        <li>ordered list item</li>
-        <li>list item</li>
-        <li>list item</li>
-        <li>list item</li>
-    </ol>
-
-    <dl>
-        <dt>definition term in definition list</dt><dd>defintion description</dd>
-        <dt>definition term </dt>
-            <dd>definition description 1</dd>
-            <dd>definition description 2</dd>
-    </dl>
-    
-    <h5>fifth level headline</h5>
-    <blockquote>
-        <p>this is the quote text</p>
-        <cite>this is the quote speaker</cite>
-    </blockquote>
-
-    <p>this is a paragraph that <q>includes a quote--do not include quotation marks</q></p>
-    
-    <h6>sixth level headline</h6>
-    <time datetime="yyyy-mm-dd">written date value--to add the time, seperate with a space or "T"</time>
-    <time datetime="hh:mm:ss.ddd+-hh:mm">the time uses a 24-hour clock for the standard tiem and a plus/minus hours off UCT for the timezone</time>
-
-    <p>this is a <code>snippet of code formatted as monospace via default CSS</code></p>
-    <p>left angle bracket/less than: &lt;</p>
-    <p>right angle bracket/greater than: &gt;</p>
-    <p>ampersand: &amp;</p>
-    <p>there's a <br> line break here</p>
-    <p><pre>the spacing in this text will be redered as in the code</pre></p>
-    <p>there's a non-breaking&nbsp;space that will keep those two words on the same line; it can also be used to add multiple spaces, as non-breaking spaces won't be removed</p>
-
-    <p>this is a<sub>subscript</sub></p>
-    <p>this is a<sup>superscript</sup></p>
-    <small>this is the fine print</small>
-
-    <h2>Global Attribute</h2>
-    <p class="class-name">class allows for CSS and JavaScript targeting</p>
-    <p id="id-name">id allows for CSS and JavaScript targeting of an individual tag; it must be unique on the page, which makes it more useful for links</p>
-    <p lang="en">language: uses ISO 639-1 code</p>
-    <p dir="auto">direction of language: "ltr" is left to right; "rtl" is right to left</p>
-
-    <!--this is a comment
-    it goes across multiple lines-->
-
-    <h2>Link</h2>
-    <a href="URL the link goes to">link text--note that anything wrapped in an a tag becomes a link. For absolute URLs, https must be included at start of href. Relative URLs start with a slash representing the root directory.Going to a folder in a file path will pull up the "index.html" file in that folder.</a>
-
-    <nav>
+<!DOCTYPE html>
+<html lang="en-US" dir="auto">
+    <head>
+        <meta charset="UTF-8">
+        <title>this is the title for the page used by the browser; it's required</title>
+        <link href="path to CSS" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Top headline: page title</h1>
+        <h2>secondary headline and/or subtitle</h2>
+        <p>paragraph text</p>
+        <p>paragraph text</p>
+        
+        <h3>third level headline</h3>
+        <p>visual/grammar <i>italics</i> and <b>boldings</b></p>
+        <p>emphasis <em>italics</em> and <strong>boldings</strong></p>
+        
+        <h4>fourth level headline</h4>
         <ul>
-            <li>item in navigation bar; having a ordered list can be used as breadcrumbs</li>
+            <li>unordered list item</li>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
         </ul>
-    </nav>
+    
+        <ol>
+            <li>ordered list item</li>
+            <li>list item</li>
+            <li>list item</li>
+            <li>list item</li>
+        </ol>
+    
+        <dl>
+            <dt>definition term in definition list</dt><dd>defintion description</dd>
+            <dt>definition term </dt>
+                <dd>definition description 1</dd>
+                <dd>definition description 2</dd>
+        </dl>
+        
+        <h5>fifth level headline</h5>
+        <blockquote>
+            <p>this is the quote text</p>
+            <cite>this is the quote speaker</cite>
+        </blockquote>
+    
+        <p>this is a paragraph that <q>includes a quote--do not include quotation marks</q></p>
+        
+        <h6>sixth level headline</h6>
+        <time datetime="yyyy-mm-dd">written date value--to add the time, seperate with a space or "T"</time>
+        <time datetime="hh:mm:ss.ddd+-hh:mm">the time uses a 24-hour clock for the standard tiem and a plus/minus hours off UCT for the timezone</time>
+    
+        <p>this is a <code>snippet of code formatted as monospace via default CSS</code></p>
+        <p>left angle bracket/less than: &lt;</p>
+        <p>right angle bracket/greater than: &gt;</p>
+        <p>ampersand: &amp;</p>
+        <p>there's a <br> line break here</p>
+        <p><pre>the spacing in this text will be redered as in the code</pre></p>
+        <p>there's a non-breaking&nbsp;space that will keep those two words on the same line; it can also be used to add multiple spaces, as non-breaking spaces won't be removed</p>
+    
+        <p>this is a<sub>subscript</sub></p>
+        <p>this is a<sup>superscript</sup></p>
+        <small>this is the fine print</small>
+    
+        <h2>Global Attribute</h2>
+        <p class="class-name">class allows for CSS and JavaScript targeting</p>
+        <p id="id-name">id allows for CSS and JavaScript targeting of an individual tag; it must be unique on the page, which makes it more useful for links</p>
+        <p lang="en">language: uses ISO 639-1 code</p>
+        <p dir="auto">direction of language: "ltr" is left to right; "rtl" is right to left</p>
+    
+        <!--this is a comment
+        it goes across multiple lines-->
+    
+        <h2>Link</h2>
+        <a href="URL the link goes to">link text--note that anything wrapped in an a tag becomes a link. For absolute URLs, https must be included at start of href. Relative URLs start with a slash representing the root directory.Going to a folder in a file path will pull up the "index.html" file in that folder.</a>
+    
+        <nav>
+            <ul>
+                <li>item in navigation bar; having a ordered list can be used as breadcrumbs</li>
+            </ul>
+        </nav>
 
-    <footer>
-        <p>this is the footer</p>
-    </footer>
-
-</body>
+        <div>this is a block of HTML that's been marked with a block-level tag that's the equivilent of "thing" and should be used only when an attribute needs to be assigned to a section that has no other specific meaning--with p, this is rare. <span>this is the inline equivilent, which should be used only when needing to apply just an attribute to a piece of text</span></div>
+    
+        <footer>
+            <p>this is the footer</p>
+        </footer>
+    
+    </body>
+</html>
