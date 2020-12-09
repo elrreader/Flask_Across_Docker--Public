@@ -80,10 +80,31 @@
         </nav>
 
         <div>this is a block of HTML that's been marked with a block-level tag that's the equivilent of "thing" and should be used only when an attribute needs to be assigned to a section that has no other specific meaning--with p, this is rare. <span>this is the inline equivilent, which should be used only when needing to apply just an attribute to a piece of text</span></div>
+
+        <h2>Sectioning</h2>
+        <main>
+            <p>contains the main content of the page; only used once per page</p>
+        </main>
+
+        <header>
+            <p>this is a header; there can be multiple--for example, a site header and an article header</p>
+        </header>
     
         <footer>
-            <p>this is the footer</p>
+            <p>this is the footer--conveys "we've got some extra things to say about the parent element" and can appear multiple times on a page</p>
         </footer>
+
+        <article>
+            <p>wraps a unit of content that can stand independently</p>
+        </article>
+
+        <section>
+            <p>sections off related pieces of content within a larger piece of content--use for pieces that aren't independent</p>
+        </section>
+
+        <aside>
+            <p>use for sidebars, tangental info, and other content outside the general flow of the sectioned info</p>
+        </aside>
     
     </body>
 </html>
