@@ -5,3 +5,33 @@ selector {
 */
 
 /*these are comments*/
+
+/* Color
+rgb(red, green, blue) uses 0-225; rgba(red, green, blue, alpha) adds percetage opacity
+https://coolors.co/000000-708d81-e54b4b-ffffff-3772ff as start for personal pallette
+https://coolors.co/5aff15-ffffff-2c2a29-ceb888-782f40 as FSU colors plus neon green
+*/
+
+
+/*
+Selectors:
+most basic selector is HTML element--matches all incidents of that element on the page
+universal selector is "*"
+Class selector
+    uses class HTML attribute
+    selector is value of attribute preceded by "."
+    class attribute can have multiple values seperated by spaces--that element will have both classes' CSS applied
+    To have CSS used only when multiple classes are assigned to an element, combine the classes as a selector without a space (ex. ".class1.class2")
+        This can also be used to combine a HTML element and a class (ex. "p.class")
+ID selectors
+    Function like class selectors, but use # instead of .
+    must be unique on the page
+    can be used in href for intra-page linking and in URLs to jump to specifc part of page--this makes ID use in CSS rare
+Decendents
+    A HTML element nested within another element is considered a decendent of the outer element; this relationship is indicated in a CSS selector with the parent element/class, a space, and the decendent element/class
+        This can go as many levels deep as desired
+Selectors can be grouped by listing them seperated by commas
+Type (HTML) is overridden by class which is overridden by ID
+The most recent value will be used for selectors of equal specificity
+
+*/
