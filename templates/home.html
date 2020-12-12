@@ -8,6 +8,10 @@
     <h1>Homepage</h1>
     <p>{{ arg }}</p>
 
+    {% for message in get_flashed_messages() %}
+    <h2>{{ message }}</h2>
+    {% endfor %}
+
     <form action="result" method="POST">
         <label>
             text box label

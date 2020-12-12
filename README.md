@@ -31,3 +31,9 @@ Setting up a Flask site to serve as a web app for a database across a series of 
 
 ## Development Steps: Create a Redirect to a Function in app.py
 1. Use `redirect(url_for())` where the innermost argument is the name of the function as a string
+
+## Development Steps: Flash a Message When Landing on a Page
+0. Ensure *app.py* has a `app.secret_key` value
+1. In *app.py*, just before the `return` statement that renders the HTML template for the page, add `flash()` with an argument of a string that contains the message that should be displayed to the user
+2. On the page's HTML file, add the jinja for loop elements `{% for message in get_flashed_messages() %}` and `{% endfor %}` (`message` in the loop start is a variable name and can be changed to any value in that declaration, but message makes sense)
+3. Between the jinja loop elements, add `{{ message }}` (the name of the variable in the for loop in jinja's double curly braces) within any HTML tags that should be applied to the text of the flashed message
