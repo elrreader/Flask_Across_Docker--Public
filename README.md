@@ -11,5 +11,7 @@ Setting up a Flask site to serve as a web app for a database across a series of 
 1. Create file *app.py* (default name--allows for starting built-in server without specifying app name)
 2. Create folder *templates* to hold HTML template files
 
-### Step 1: Create the Base Script
-1. Create file app.py (use this name because...)
+## Development Steps: Create a Page on the Web Application
+1. Create the HTML file with the page contents in the *templates* folder
+2. Create a function that returns `render_templates()` where the parameter is the path to the HTML file as a string excluding the *templates* folder
+3. Decorate the above function with `@app.route()` where the parameter is a string that's the URL path for the page
