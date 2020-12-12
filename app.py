@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import redirect
+from flask import url_for
 
 app = Flask(__name__)
 
@@ -13,4 +15,4 @@ def data_submitted():
     if request.method == 'POST':
         return render_template('data.html', submitted_data=request.form['input_string'])
     else:
-        return "Not valid"
+        return redirect(url_for('home'))

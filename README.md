@@ -22,8 +22,11 @@ Setting up a Flask site to serve as a web app for a database across a series of 
 1. Create a `<form>` element on the HTML page that will collect the data
 2. For that element, set the `action` attribute to the URL path of the page the user will land on when the form is submitted (not including the first slash) and the `method` attribute to `'POST'`
 3. In *app.py*, set up the route matching the above URL route with the additional argument `methods=['GET', 'POST']`
-4. Create the function decorated by the above route with a `if request.method == 'POST':` that returns the `render_template()` for the page the user should be directed to upon submitting the form and an `else:` returning placeholder text
+4. Create the function decorated by the above route with a `if request.method == 'POST':` that returns the `render_template()` for the page the user should be directed to upon submitting the form and an `else:` with a redirect
 5. Create the HTML file referenced in the `render_template()` above (if not already created)
 6. Within the `<form>` element, create `<input>` elements, each with a unique `name` attribute
 
 * To capture the user input, include in the `render_template()` function for the post-submission page an assignment statement with `request.args[]` with an argument of the `name` attribute for the input element as a string.
+
+## Development Steps: Create a Redirect to a Function in app.py
+1. Use `redirect(url_for())` where the innermost argument is the name of the function as a string
