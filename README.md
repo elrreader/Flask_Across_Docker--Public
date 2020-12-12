@@ -26,7 +26,8 @@ Setting up a Flask site to serve as a web app for a database across a series of 
 5. Create the HTML file referenced in the `render_template()` above (if not already created)
 6. Within the `<form>` element, create `<input>` elements, each with a unique `name` attribute
 
-* To capture the user input, include in the `render_template()` function for the post-submission page an assignment statement with `request.args[]` with an argument of the `name` attribute for the input element as a string.
+* To capture the user input, include in the function decorated by the route for the post-submission page `request.form[]` with an argument of the `name` attribute for the input element as a string.
+* To make use of the value on the webpage via jinja, the `render_template()` function must include a keyword argument where the argument name is the value used in the HTML wrapped in jinja's double curly braces and the value is what will be displayed when the HTML renders.
 
 ## Development Steps: Create a Redirect to a Function in app.py
 1. Use `redirect(url_for())` where the innermost argument is the name of the function as a string
