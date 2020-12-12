@@ -15,3 +15,5 @@ Setting up a Flask site to serve as a web app for a database across a series of 
 1. Create the HTML file with the page contents in the *templates* folder
 2. Create a function that returns `render_templates()` where the parameter is the path to the HTML file as a string excluding the *templates* folder
 3. Decorate the above function with `@app.route()` where the parameter is a string that's the URL path for the page
+
+* To pass content from the back end to the page, add the value as the value for a keyword argument in `render_templates()` and include the variable name between two curly braces in the HTML document.
