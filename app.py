@@ -6,6 +6,7 @@ from flask import url_for
 import json
 import os.path
 from flask import flash
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.secret_key="password"
@@ -28,6 +29,9 @@ def data_submitted():
             flash("Flashed message because of duplicate key")
             return redirect(url_for('home'))
 
+        saved_user_file = request.files['file_upload']
+        saved_user_file_name = secure_filename(saved_user_file.filename)
+        saved_user_file.save(f'files/{saved_user_file_name}')
 
         save_data[request.form['input_number']] = request.form['input_string']
         with open('save_user_input_data.json', 'w') as DataFile:

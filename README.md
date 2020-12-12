@@ -37,3 +37,11 @@ Setting up a Flask site to serve as a web app for a database across a series of 
 1. In *app.py*, just before the `return` statement that renders the HTML template for the page, add `flash()` with an argument of a string that contains the message that should be displayed to the user
 2. On the page's HTML file, add the jinja for loop elements `{% for message in get_flashed_messages() %}` and `{% endfor %}` (`message` in the loop start is a variable name and can be changed to any value in that declaration, but message makes sense)
 3. Between the jinja loop elements, add `{{ message }}` (the name of the variable in the for loop in jinja's double curly braces) within any HTML tags that should be applied to the text of the flashed message
+
+## Development Steps: Allow Users to Upload Files via POST Request
+1. Create a `<form>` element on the HTML page that will collect the data
+2. For that element, set the `action` attribute to the URL path of the page the user will land on when the form is submitted (not including the first slash), the `method` attribute to `'POST'`, and the `enctype` to `'multipart/form-data'`
+3. Do steps 3-5 from "Capture User Submitted Data via POST Request"
+4. Within the `<form>` element, create an `<input>` element with the attribute `type='file'` and a unique `name` attribute
+5. Create other `<input>` elements within the `<form>`, each with a unique `name` attribute
+6. Within the function decorated by the route to the HTML file specified in the `action` attribute, save the file to a location in the project directory with `request.files[].save()` with the value of the `name` attribute for the input element as a string in the brackets and the full file path and name of the file as a string in the parentheses. (Note: all files in the path must exist before the saving attempt for it to work)
