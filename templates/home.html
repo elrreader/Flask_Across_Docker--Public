@@ -5,7 +5,8 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Homepage</h1>
+    {% extends 'template.html' %}
+    {% block body %}
     <p>{{ arg }}</p>
 
     {% for message in get_flashed_messages() %}
@@ -29,6 +30,7 @@
         </label>
         <br>
         <input type="submit" value="submit button text">
+        {% endblock %}
     </form>
 </body>
 </html>

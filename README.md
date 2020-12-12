@@ -64,3 +64,11 @@ Look up best practice for how to do this--is "if a variable route URL function w
 
 ## Development Steps: Internal Linking with Jinja
 1. `<a href="{{ url_for() }}">link text<a>` where the parameter for `url_for` is the name of the function decorated by the URL path that the link should go to as a string
+
+## Development Steps: Create a HTML Template
+1. Create a HTML file
+2. Add `{% block block_name %}` and `{% endblock %}` to the body of the template where `block_name` is the name of the block that will be inserted into the template
+3. In the HTML file with the content to be inserted into the template, add `{% extends 'file.html' %}` where file is the name of the template (at the beginning of the file???)
+4. In that same HTML file, wrap the content that should be rendered on the page between `{% block block_name %}` and `{% endblock %}`
+
+* Blocks can be included in the head.
