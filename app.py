@@ -7,6 +7,7 @@ import json
 import os.path
 from flask import flash
 from werkzeug.utils import secure_filename
+from flask import abort
 
 app = Flask(__name__)
 app.secret_key="password"
@@ -42,4 +43,11 @@ def data_submitted():
 
 @app.route('/<string:static_file>')
 def serve_static_file(static_file):
-    return redirect(url_for('static', filename=f'user_uploads/{static_file}'))
+    if static_file == "README.md": # Actually should be looking through wherever the data for the variable URL routes might be
+        return redirect(url_for('static', filename=f'user_uploads/{static_file}'))
+    else:
+        return abort(404)
+
+@app.errorhandler(404)
+def http_404_error(error):
+    return render_template('page_not_found.html'), 404

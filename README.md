@@ -54,3 +54,13 @@ Setting up a Flask site to serve as a web app for a database across a series of 
 
 ## Development Steps: Serve a File Saved in Static
 1. `return redirect(url_for('static', filename=))` where the value of the `filename` keyword argument is the file path to the file to be served from the *static* folder (meaning not including that folder, but including all subfolders)
+
+## Development Steps: Setting Up a 404 Page
+Look up best practice for how to do this--is "if a variable route URL function was activated, but the URL route itself didn't match anything we have data for, return 404" the best practice?
+1. Set up page with variable route URL
+2. For the inability to find a match to the value passed into the function, `return abort(404)`
+3. Create a function with a parameter `error` containing `return render_template('page_not_found.html'), 404` (the HTML file name can be anything, but page_not_found is appropriate)
+4. Decorate the above function with `@app.errorhandler(404)`
+
+## Development Steps: Internal Linking with Jinja
+1. `<a href="{{ url_for() }}">link text<a>` where the parameter for `url_for` is the name of the function decorated by the URL path that the link should go to as a string
