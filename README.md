@@ -45,3 +45,9 @@ Setting up a Flask site to serve as a web app for a database across a series of 
 4. Within the `<form>` element, create an `<input>` element with the attribute `type='file'` and a unique `name` attribute
 5. Create other `<input>` elements within the `<form>`, each with a unique `name` attribute
 6. Within the function decorated by the route to the HTML file specified in the `action` attribute, save the file to a location in the project directory with `request.files[].save()` with the value of the `name` attribute for the input element as a string in the brackets and the full file path and name of the file as a string in the parentheses. (Note: all files in the path must exist before the saving attempt for it to work)
+
+## Development Steps: Create a Variable URL
+1. Create a route function decorator `@app.route('/<string:variable>')`
+2. Define a route function which takes `variable` as a parameter
+
+* When a given URL route not matching one of the static routes preceeding the variable URL function is entered, the value of the path is passed into the function as a string. Generally speaking, this variable should be cross-referenced against some other data source with potential values for `variable` and corresponding other data that will be provided when the page loads via jinja; otherwise, all possible paths on the domain will be considered valid.

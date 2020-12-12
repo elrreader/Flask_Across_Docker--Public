@@ -39,3 +39,7 @@ def data_submitted():
         return render_template('data.html', transfer=save_data)
     else:
         return redirect(url_for('home'))
+
+@app.route('/<string:url_path>')
+def redirect_to_url(url_path):
+    return render_template('variable.html', value=url_path)
