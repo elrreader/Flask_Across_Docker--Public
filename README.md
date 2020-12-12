@@ -13,15 +13,17 @@ Setting up a Flask site to serve as a web app for a database across a series of 
 
 ## Development Steps: Create a Page in the Web Application
 1. Create the HTML file with the page contents in the *templates* folder
-2. Create a function that returns `render_templates()` where the parameter is the path to the HTML file as a string excluding the *templates* folder
+2. Create a function that returns `render_template()` where the parameter is the path to the HTML file as a string excluding the *templates* folder
 3. Decorate the above function with `@app.route()` where the parameter is a string that's the URL path for the page
 
-* To pass content from the back end to the page, add the value as the value for a keyword argument in `render_templates()` and include the variable name between two curly braces in the HTML document.
+* To pass content from the back end to the page, add the value as the value for a keyword argument in `render_template()` and include the variable name between two curly braces in the HTML document.
 
-## Development Steps: Capture User Submitted Data
-1. Create a `<form>` element
-2. Set the `action` attribute of the `<form>` element to the URL path of the page the user will land on when the form is submitted (not including the first slash)
-3. Create a page in the web application corresponding to the URL path declared above
-4. Within the form, create `<input>` elements, each with a unique `name` attribute
+## Development Steps: Capture User Submitted Data via POST Request
+1. Create a `<form>` element on the HTML page that will collect the data
+2. For that element, set the `action` attribute to the URL path of the page the user will land on when the form is submitted (not including the first slash) and the `method` attribute to `'POST'`
+3. In *app.py*, set up the route matching the above URL route with the additional argument `methods=['GET', 'POST']`
+4. Create the function decorated by the above route with a `if request.method == 'POST':` that returns the `render_template()` for the page the user should be directed to upon submitting the form and an `else:` returning placeholder text
+5. Create the HTML file referenced in the `render_template()` above (if not already created)
+6. Within the `<form>` element, create `<input>` elements, each with a unique `name` attribute
 
 * To capture the user input, include in the `render_template()` function for the post-submission page an assignment statement with `request.args[]` with an argument of the `name` attribute for the input element as a string.
