@@ -6,6 +6,14 @@
         <link href="path to CSS" rel="stylesheet">
     </head>
     <body>
+        <!--nav is used for major/primary navigation only; can go inside or outside header-->
+        <!--use unordered for standard nav, use ordered for breadcrumbs-->
+        <nav>
+            <ul>
+                <li><a href="#">item in navigation</a></li>
+            </ul>
+        </nav>
+
         <h1>Top headline: page title</h1>
         <h2>secondary headline and/or subtitle</h2>
         <p>paragraph text</p>
@@ -73,12 +81,6 @@
         <h2>Link</h2>
         <a href="URL the link goes to" target="_blank opens in new tab/window">link text--note that anything wrapped in an a tag becomes a link. For absolute URLs, https must be included at start of href. Relative URLs start with a slash representing the root directory.Going to a folder in a file path will pull up the "index.html" file in that folder.</a>
     
-        <nav>
-            <ul>
-                <li>item in navigation bar; having a ordered list can be used as breadcrumbs</li>
-            </ul>
-        </nav>
-
         <div>this is a block of HTML that's been marked with a block-level tag that's the equivilent of "thing" and should be used only when an attribute needs to be assigned to a section that has no other specific meaning--with p, this is rare. <span>this is the inline equivilent, which should be used only when needing to apply just an attribute to a piece of text</span></div>
 
         <h2>Sectioning</h2>
@@ -186,6 +188,20 @@
                 <td>row 2, column 2</td>
             </tr>
         </table>
+
+        <h2>Figure</h2>
+        <!--can be moved without impacting remaining content-->
+        <figure>
+            <img src="file containing image" alt="describe image">
+            <figcaption>caption for image/other item in figure tag with it</figcaption>
+        </figure>
+
+        <h2>Misc</h2>
+        <address>
+            contains an address, including email addresses and phone numbers
+        </address>
+        <a href="mailto:email address">email address</a>
+        <a href="tel:+international phone number without spaces or dashes">phone number</a>
 
     </body>
 </html>
