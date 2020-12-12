@@ -8,9 +8,32 @@ import os.path
 from flask import flash
 from werkzeug.utils import secure_filename
 from flask import abort
+import mysql.connector as mysql
+import Private.Database_Credentials as Credentials
 
 app = Flask(__name__)
 app.secret_key="password"
+
+##################
+# Connect to MySQL
+def MySQL_Connection():
+    return mysql.connect(
+        host = Credentials.Host,
+        user = Credentials.Username,
+        password=Credentials.Password,
+        database='InfoIsUs'
+    )
+
+
+
+Cursor = Connection.cursor()
+Cursor.execute('SELECT * FROM JobTitle')
+Records = Cursor.fetchall() # This returns a stnadard list
+print(Records)
+print(type(Records))
+
+Connection.close()
+##################
 
 @app.route('/')
 def home():

@@ -73,3 +73,8 @@ Look up best practice for how to do this--is "if a variable route URL function w
 4. In that same HTML file, wrap the content that should be rendered on the page between `{% block block_name %}` and `{% endblock %}`
 
 * Blocks can be included in the head.
+
+## Development Steps: Create a Function for Executing SQL Statements
+1. Create a function to return a connection object
+   1. `return <module used for connectiong to MySQL>.connect(host='host', user='root', password='password', database='database)`
+   2. `'Host'` is the host of the MySQL server as a string, `'password'` is the password for the root user, `'database'` is the name of the database/schema being used and is optional (if left out, must be declared later)
