@@ -1,12 +1,13 @@
 from flask import Flask
 from flask import render_template
+from flask import request
 
 app = Flask(__name__)
 
-@app.route('/') # This defines the route off the domain
-def home(): # This is the function that executes when the browser goes to the route above
+@app.route('/')
+def home():
     return render_template('home.html', arg="passed")
 
-@app.route('/about')
-def about():
-    return "about page"
+@app.route('/result')
+def data_submitted():
+    return render_template('data.html', submitted_data=request.args['input_string'])
