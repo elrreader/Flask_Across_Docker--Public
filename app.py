@@ -31,7 +31,7 @@ def data_submitted():
 
         saved_user_file = request.files['file_upload']
         saved_user_file_name = secure_filename(saved_user_file.filename)
-        saved_user_file.save(f'files/{saved_user_file_name}')
+        saved_user_file.save(f'static/user_uploads/{saved_user_file_name}')
 
         save_data[request.form['input_number']] = request.form['input_string']
         with open('save_user_input_data.json', 'w') as DataFile:
@@ -40,6 +40,6 @@ def data_submitted():
     else:
         return redirect(url_for('home'))
 
-@app.route('/<string:url_path>')
-def redirect_to_url(url_path):
-    return render_template('variable.html', value=url_path)
+@app.route('/<string:static_file>')
+def serve_static_file(static_file):
+    return redirect(url_for('static', filename=f'user_uploads/{static_file}'))
