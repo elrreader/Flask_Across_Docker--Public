@@ -13,6 +13,7 @@ import Private.Database_Credentials as Credentials
 
 app = Flask(__name__)
 app.secret_key="password"
+# app.run(debug=TRUE)
 
 ##################
 # Connect to MySQL
@@ -95,10 +96,30 @@ def serve_static_file(static_file):
 def http_404_error(error):
     return render_template('page_not_found.html'), 404
 
-@app.route('/SQL')
+@app.route('/SQL') #ToDo: Finish functionality
 def Write_SQL_Query():
     return render_template('Write_SQL_Query.html')
 
-@app.route('/database', methods=['GET', 'POST'])
+@app.route('/database', methods=['GET', 'POST']) #ToDo: Finish functionality
 def SQL_Results():
-    pass
+    return render_template('SQL_Results.html')
+
+# Copy of Python and Databases Example
+
+@app.route('/enter-data')
+def Enter_Data():
+    return render_template('Data_Entry_Form.html')
+
+@app.route('/SOC/<SOC_ID>')
+def Show_SOC_and_Jobs(SOC_ID):
+    return render_template('SOC_and_Jobs.html', SOC=SOC_ID)
+
+@app.route('/add/SOC', methods=['POST']) # Will only accept POST, because GET doesn't have data the DB can add
+def Add_SOC():
+    #add 
+    return "SOC added"
+
+@app.route('/add/job/<SOC_ID>', methods=['POST'])
+def Add_Job(SOC_ID):
+    #add
+    return "Job added"

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOC and Jobs</title>
+</head>
+<body>
+    {% extends 'template.html' %}
+    {% block body %}
+
+    <h2>{{ SOC }}</h2>
+    <ul>
+        <li>Job</li>
+    </ul>
+
+    <h3>Add a Job</h3>
+    <form action="/add/job/{{SOC}}" method="POST" enctype="multipart/form-data">
+        <label>
+            Enter SOC Name
+            <input type="text" name="New_Job">
+        </label>
+        <br>
+        <input type="submit" value="Add Job">
+    </form>
+    
+    {% endblock %}
+</body>
+</html>

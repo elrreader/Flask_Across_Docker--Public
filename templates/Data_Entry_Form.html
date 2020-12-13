@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Entry Form</title>
+</head>
+<body>
+    {% extends 'template.html' %}
+    {% block body %}
+
+    <h2>List of SOCs</h2>
+    <ul>
+        <li><a href="/SOC/1">Link to a SOC</a></li>
+    </ul>
+    
+    <h2>Add a SOC</h2>
+    <form action="/add/SOC" method="POST" enctype="multipart/form-data">
+        <label>
+            Enter SOC Name
+            <input type="text" name="New_SOC">
+        </label>
+        <br>
+        <input type="submit" value="Add SOC">
+    </form>
+    
+    {% endblock %}
+</body>
+</html>
