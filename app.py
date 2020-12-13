@@ -24,15 +24,35 @@ def MySQL_Connection():
         database='InfoIsUs'
     )
 
+#Alert: Cursor is parameter, not established within function for non-Flask app; can also pass in connection object
+def Insert_JobTitle(Title, SOC, FK_Table_Input): # Final parameter is list of tuples where each tuple is the data going into a record
+    Input = (Title, SOC) #ToDo: Confirm this is creating a tuple
+    # Viable value: ("Teacher", 6)
+    Connection = MySQL_Connection()
+    Cursor = Connection.cursor()
+    #ToDo: Adjust f-string to take from tuple
+    Cursor.execute(f'INSERT INTO JobTitle(jobTitle, SOC) VALUES ({1}, {2});')
 
+    PK_of_Last_Record_Inserted = Cursor.lastrowid
 
-Cursor = Connection.cursor()
-Cursor.execute('SELECT * FROM JobTitle')
-Records = Cursor.fetchall() # This returns a stnadard list
-print(Records)
-print(type(Records))
+    Inputs = []
+    for record in FK_Table_Input:
+        record_inputs = (PK_of_Last_Record_Inserted, record) #ToDo: Figure out unpacking contents of tuple "record" into tuple "record_inputs"
+        Inputs.append(record_inputs)
+    #ToDo: Adjust f-string to take from tuple
+    Cursor.executemany(f"""SQL Statement {1}, {2}""") # This executes the statement multiple times?
+    Connection.commit()
+    Connection.close()
 
-Connection.close()
+def Select_JobTitle():
+    Connection = MySQL_Connection()
+    Cursor = Connection.cursor()
+    Cursor.execute('SELECT * FROM JobTitle')
+    Records = Cursor.fetchall() # This returns a standard list
+    print(Records)
+    print(type(Records))
+    Connection.close()
+
 ##################
 
 @app.route('/')
