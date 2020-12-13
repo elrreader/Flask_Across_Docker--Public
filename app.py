@@ -94,3 +94,11 @@ def serve_static_file(static_file):
 @app.errorhandler(404)
 def http_404_error(error):
     return render_template('page_not_found.html'), 404
+
+@app.route('/SQL')
+def Write_SQL_Query():
+    return render_template('Write_SQL_Query.html')
+
+@app.route('/database', methods=['GET', 'POST'])
+def SQL_Results():
+    pass
