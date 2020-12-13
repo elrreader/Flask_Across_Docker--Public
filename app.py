@@ -9,27 +9,31 @@ from flask import flash
 from werkzeug.utils import secure_filename
 from flask import abort
 import mysql.connector as mysql
+from flask_sqlalchemy import SQLAlchemy
 import Private.Database_Credentials as Credentials
 
 app = Flask(__name__)
 app.secret_key="password"
 # app.run(debug=TRUE)
+Database='InfoIsUs'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysql.connect://' + Credentials.Username + ':' + Credentials.Password + '@' + Credentials.Host + ':' + str(Credentials.Post) + '/' + Database
+
 
 ##################
 # Connect to MySQL
-def MySQL_Connection():
+def MySQL_Connection(DB):
     return mysql.connect(
         host = Credentials.Host,
         user = Credentials.Username,
         password=Credentials.Password,
-        database='InfoIsUs'
+        database=DB
     )
 
 #Alert: Cursor is parameter, not established within function for non-Flask app; can also pass in connection object
 def Insert_JobTitle(Title, SOC, FK_Table_Input): # Final parameter is list of tuples where each tuple is the data going into a record
     Input = (Title, SOC) #ToDo: Confirm this is creating a tuple
     # Viable value: ("Teacher", 6)
-    Connection = MySQL_Connection()
+    Connection = MySQL_Connection(Database)
     Cursor = Connection.cursor()
     #ToDo: Adjust f-string to take from tuple
     Cursor.execute(f'INSERT INTO JobTitle(jobTitle, SOC) VALUES ({1}, {2});')
@@ -46,7 +50,7 @@ def Insert_JobTitle(Title, SOC, FK_Table_Input): # Final parameter is list of tu
     Connection.close()
 
 def Select_JobTitle():
-    Connection = MySQL_Connection()
+    Connection = MySQL_Connection(Database)
     Cursor = Connection.cursor()
     Cursor.execute('SELECT * FROM JobTitle')
     Records = Cursor.fetchall() # This returns a standard list
@@ -104,11 +108,27 @@ def Write_SQL_Query():
 def SQL_Results():
     return render_template('SQL_Results.html')
 
+######################################
 # Copy of Python and Databases Example
+
+SQLAlchemy_DB = SQLAlchemy(app)
+
+class OccupationClass_Table(SQLAlchemy_DB.model):
+    """CREATE TABLE OccupationClass (
+        occupationClassID INT NOT NULL AUTO_INCREMENT,
+        SOC VARCHAR(50) NULL,
+        PRIMARY KEY (occupationClassID))
+  """
+    __tablename__ = 'OccupationClass'
+
+    occupationClassID = SQLAlchemy_DB.Column(SQLAlchemy_DB.Integer, primary_key=True)
+    SOC = SQLAlchemy_DB.Column(SQLAlchemy_DB.String(length=50))
+
+
 
 @app.route('/enter-data')
 def Enter_Data():
-    return render_template('Data_Entry_Form.html')
+    return render_template('Data_Entry_Form.html', Table=OccupationClass_Table.query.all())
 
 @app.route('/SOC/<SOC_ID>')
 def Show_SOC_and_Jobs(SOC_ID):

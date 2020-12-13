@@ -11,7 +11,9 @@
 
     <h2>List of SOCs</h2>
     <ul>
-        <li><a href="/SOC/1">Link to a SOC</a></li>
+        {% for record in table %}
+        <li><a href="/SOC/{{ Table.occupationClassID }}">{{ Table.title }}</a></li>
+        {% endfor %}
     </ul>
     
     <h2>Add a SOC</h2>
