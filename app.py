@@ -113,7 +113,7 @@ def SQL_Results():
 
 SQLAlchemy_DB = SQLAlchemy(app)
 
-class OccupationClass_Table(SQLAlchemy_DB.model):
+class OccupationClass_Table(SQLAlchemy_DB.Model):
     """CREATE TABLE OccupationClass (
         occupationClassID INT NOT NULL AUTO_INCREMENT,
         SOC VARCHAR(50) NULL,
