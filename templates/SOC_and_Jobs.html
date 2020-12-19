@@ -9,9 +9,11 @@
     {% extends 'template.html' %}
     {% block body %}
 
-    <h2>{{ SOC }}</h2>
+    <h2>{{ SOC.title }}</h2>
     <ul>
+        {% for Job in Jobs %}
         <li>Job</li>
+        {% endfor %}
     </ul>
 
     <h3>Add a Job</h3>

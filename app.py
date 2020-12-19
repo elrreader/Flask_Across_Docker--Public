@@ -148,7 +148,7 @@ def Enter_Data():
 
 @app.route('/SOC/<SOC_ID>')
 def Show_SOC_and_Jobs(SOC_ID):
-    return render_template('SOC_and_Jobs.html', SOC=SOC_ID)
+    return render_template('SOC_and_Jobs.html', SOC=OccupationClass_Table.query.filter_by(occupationClassID=SOC_ID).first(), Jobs=JobTitle_Table.query.filter_by(Job_List=JobTitle_Table.SOC).all())
 
 @app.route('/add/SOC', methods=['POST']) # Will only accept POST, because GET doesn't have data the DB can add
 def Add_SOC():
