@@ -124,6 +124,22 @@ class OccupationClass_Table(SQLAlchemy_DB.Model):
     occupationClassID = SQLAlchemy_DB.Column(SQLAlchemy_DB.Integer, primary_key=True)
     SOC = SQLAlchemy_DB.Column(SQLAlchemy_DB.String(length=50))
 
+class JobTitle_Table(SQLAlchemy_DB.Model):
+    """
+    CREATE TABLE JobTitle (
+        jobTitleID INT NOT NULL AUTO_INCREMENT,
+        jobTitle VARCHAR(30) NOT NULL,
+        SOC INT NOT NULL,
+        PRIMARY KEY (jobTitleID))
+    """
+    __tablename__ = 'JobTitle'
+
+    jobTitleID = SQLAlchemy_DB.Column(SQLAlchemy_DB.Integer, primary_key=True)
+    jobTitle = SQLAlchemy_DB.Column(SQLAlchemy_DB.String(length=30))
+    SOC = SQLAlchemy_DB.Column(SQLAlchemy_DB.Integer, SQLAlchemy_DB.ForeignKey('OccupationClass_Table.occupationClassID'))
+
+    Relationship_with_OccupationClass = SQLAlchemy_DB.relationship('OccupationClass_Table')
+
 
 
 @app.route('/enter-data')
